@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="form">
+    <div>
+      <input (keyup.enter)="search(searchedCity.value)" type="text" #searchedCity>
+    </div>
+   
+    <button (click)="search(searchedCity.value)">Search city</button>
+  </div>
+  <div class="no-result" *ngIf="cities.length===0 && called && searchedCity.value.length>0">No results, please try again.</div>
+  <div  *ngIf="cities.length>0" class="cities-found">The list of cities found:</div>
+
+
+  <ul class="list">
+    <li *ngFor="let item of cities" class="city">
+      {{item.cityName}}
+
+    </li>
+  </ul>
+</div>
